@@ -259,7 +259,7 @@ describe("article endpoints — parity with the main demo widget", () => {
     const firstCaption = FIRST.caption;
     const lastCaption = LAST.caption;
     expect(firstCaption).toBe("DaisyDisk-inspired interactive sunburst map");
-    expect(lastCaption).toContain("No transition by default");
+    expect(lastCaption).toBe("Toggle animations on and off and see how it changes the feel of the map");
     const { container: c1, unmount: u1 } = renderWidget(FIRST);
     expect(c1.querySelector(".sunburst-widget-caption")).toHaveTextContent(firstCaption);
     u1();
