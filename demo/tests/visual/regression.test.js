@@ -19,13 +19,23 @@ import {
 
 // ---- Helpers ----
 
+// Round every numeric literal to a fixed precision before comparing. SVG path
+// coordinates carry last-digit float noise that varies between CPU architectures
+// (arm64 vs x64), so byte-exact comparison would fail on CI runners. Real visual
+// changes are many orders of magnitude larger than 1e-6 px, so this preserves the
+// regression-detection purpose while making baselines architecture-independent.
+const FLOAT_PRECISION = 6;
+function normalizeFloats(svg) {
+  return svg.replace(/-?\d+\.\d+/g, (m) => Number(m).toFixed(FLOAT_PRECISION));
+}
+
 function assertMatchesBaseline(name, svg) {
   const baseline = readBaseline(name);
   if (baseline === null) {
     writeBaseline(name, svg);
     return { created: true };
   }
-  expect(svg).toBe(baseline);
+  expect(normalizeFloats(svg)).toBe(normalizeFloats(baseline));
   return { created: false };
 }
 
