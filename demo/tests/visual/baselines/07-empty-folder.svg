@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800" style="background: #16161a">
+  <!-- center -->
+  <circle cx="400" cy="400" r="50" fill="transparent" fill-opacity="0.000" stroke="hsl(0, 0%, 55%)" stroke-width="1.2" stroke-opacity="1.000" />
+  <!-- sectors -->
+</svg>

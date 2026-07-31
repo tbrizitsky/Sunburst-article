@@ -1,0 +1,90 @@
+diff --git a/node_modules/dialkit/dist/index.d.ts b/node_modules/dialkit/dist/index.d.ts
+index 974c664..89d0b21 100644
+--- a/node_modules/dialkit/dist/index.d.ts
++++ b/node_modules/dialkit/dist/index.d.ts
+@@ -440,6 +440,9 @@ interface DialTimelineProps {
+     onVisibilityChange?: (visible: boolean) => void;
+     defaultOpen?: boolean;
+     productionEnabled?: boolean;
++    /** Optional label rendered in each timeline section's toolbar, left of the
++     * transport buttons (e.g. a source → target indicator). */
++    pairLabel?: string;
+ }
+ declare const DialTimeline: react.NamedExoticComponent<DialTimelineProps>;
+ 
+diff --git a/node_modules/dialkit/dist/index.js b/node_modules/dialkit/dist/index.js
+index 5401847..50d3fc9 100644
+--- a/node_modules/dialkit/dist/index.js
++++ b/node_modules/dialkit/dist/index.js
+@@ -4256,7 +4256,8 @@ var DialTimeline = memo(function DialTimeline2({
+   visible,
+   onVisibilityChange,
+   defaultOpen = true,
+-  productionEnabled = isDevDefault
++  productionEnabled = isDevDefault,
++  pairLabel
+ }) {
+   if (!productionEnabled) return null;
+   return /* @__PURE__ */ jsx18(
+@@ -4266,7 +4267,8 @@ var DialTimeline = memo(function DialTimeline2({
+       defaultVisible,
+       visible,
+       onVisibilityChange,
+-      defaultOpen
++      defaultOpen,
++      pairLabel
+     }
+   );
+ });
+@@ -4275,7 +4277,8 @@ function DialTimelineDock({
+   defaultVisible,
+   visible,
+   onVisibilityChange,
+-  defaultOpen
++  defaultOpen,
++  pairLabel
+ }) {
+   const [mounted, setMounted] = useState11(false);
+   const [dockMaxHeight, setDockMaxHeight] = useState11(DEFAULT_DOCK_MAX_HEIGHT);
+@@ -4356,7 +4359,8 @@ function DialTimelineDock({
+               meta: timeline,
+               defaultOpen,
+               theme,
+-              dockVisible
++              dockVisible,
++              pairLabel
+             },
+             timeline.id
+           ))
+@@ -4600,7 +4604,8 @@ var TimelineSection = memo(function TimelineSection2({
+   meta,
+   defaultOpen,
+   theme,
+-  dockVisible
++  dockVisible,
++  pairLabel
+ }) {
+   const [open, setOpen] = useState11(defaultOpen);
+   const [copied, setCopied] = useState11(false);
+@@ -5018,20 +5023,9 @@ var TimelineSection = memo(function TimelineSection2({
+         }
+       ),
+       /* @__PURE__ */ jsxs14("div", { className: "dialkit-timeline-actions", children: [
++        pairLabel ? /* @__PURE__ */ jsx18("span", { className: "dialkit-timeline-pair", children: pairLabel }) : null,
+         /* @__PURE__ */ jsx18(PlayPauseButton, { id: meta.id }),
+         /* @__PURE__ */ jsx18(ReplayButton, { onReplay: handleReplay }),
+-        /* @__PURE__ */ jsx18(
+-          motion7.button,
+-          {
+-            className: "dialkit-toolbar-add",
+-            onClick: handleAddPreset,
+-            title: "Add timeline version",
+-            "aria-label": "Add timeline version",
+-            whileTap: { scale: 0.9 },
+-            transition: { type: "spring", visualDuration: 0.15, bounce: 0.3 },
+-            children: /* @__PURE__ */ jsx18("svg", { viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2.5", strokeLinecap: "round", strokeLinejoin: "round", "aria-hidden": "true", children: ICON_ADD_PRESET.map((d, i) => /* @__PURE__ */ jsx18("path", { d }, i)) })
+-          }
+-        ),
+         /* @__PURE__ */ jsx18(
+           PresetManager,
+           {

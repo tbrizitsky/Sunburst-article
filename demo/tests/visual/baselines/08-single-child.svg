@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800" style="background: #16161a">
+  <!-- center -->
+  <circle cx="400" cy="400" r="50" fill="transparent" fill-opacity="0.000" stroke="hsl(0, 0%, 55%)" stroke-width="1.2" stroke-opacity="1.000" />
+  <!-- sectors -->
+  <path d="M 400.22143794620087 349.2504831034227 L 400.4330584465111 300.7509447884671 A 99.25 99.25 0 1 1 399.56694155348885 300.7509447884671 L 399.7785620537991 349.2504831034227 A 50.75 50.75 0 1 0 400.22143794620087 349.2504831034227 Z" fill="hsl(0, 0%, 50%)" fill-opacity="1.000" />
+</svg>

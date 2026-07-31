@@ -1,0 +1,18 @@
+# Local reference screenshots
+.ref/
+
+# macOS
+.DS_Store
+
+# Node (dev-only; react-grab)
+node_modules/
+
+# Vite build output
+demo/dist/
+
+# Generated snapshots (regenerated every test run)
+demo/tests/visual/snapshots/
+
+# junk
+nohup.out
+*.log
