@@ -3,6 +3,9 @@
 <p>An interactive article about the less obvious aspects of sunburst visualization</p>
 
 <p>
+  <a href="https://tbrizitsky.github.io/Sunburst-article/">
+    <img alt="Live article" src="https://img.shields.io/badge/read_the_article-live-blue?style=flat&logo=githubpages&logoColor=white" />
+  </a>
   <a href="LICENSE">
     <img alt="License: CC0" src="https://img.shields.io/badge/demo%20code-CC0_1.0-success?style=flat" />
   </a>
@@ -20,6 +23,8 @@
 ---
 
 The whole project is **spec-first**: every behavior is specified in `spec/` before it's implemented in `demo/`. An AI agent can rebuild the demo from the specs alone. The repo also contains a fully working interactive playground where you can explore the sunburst map, tweak parameters, and see how it works.
+
+> **▶ Read the article live:** [https://tbrizitsky.github.io/Sunburst-article/](https://tbrizitsky.github.io/Sunburst-article/)
 
 ## Table of contents
 
